@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Live Caption",
+    "slug": "live-caption",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Live Caption uses your microphone to transcribe and translate speech."
+      }
+    },
+    "android": {
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-audio"
+    ]
+  }
+}

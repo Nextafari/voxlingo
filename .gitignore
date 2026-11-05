@@ -1,0 +1,51 @@
+# Node dependencies
+node_modules/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Native builds
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig
+
+# iOS
+ios/build/
+ios/Pods/
+ios/*.xcworkspace
+ios/.xcode.env.local
+
+# Android
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+android/*.iml
+
+# macOS
+.DS_Store
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
