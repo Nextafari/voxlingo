@@ -53,6 +53,7 @@ Then open the app with Expo Go (scan the QR code), or press:
 .
 ├── App.tsx          # App entry: recording flow, caption UI, language pickers
 ├── app.json         # Expo config (name, permissions, plugins)
+├── backend/         # FastAPI Whisper transcription and translation service
 ├── package.json     # Dependencies and scripts
 └── tsconfig.json    # TypeScript config (extends expo/tsconfig.base)
 ```
@@ -68,3 +69,26 @@ Then open the app with Expo Go (scan the QR code), or press:
 - Expo ~58, React 19, React Native 0.88
 - `expo-audio` for recording, `expo-status-bar` for the status bar
 - TypeScript (strict mode)
+
+## Backend
+
+The Dockerized FastAPI service accepts recorded audio at
+`POST /api/v1/translations`, detects/transcribes it with Whisper Tiny, and
+sends the transcript to the configured LibreTranslate-compatible endpoint.
+
+```bash
+cd backend
+cp .env.example .env
+docker compose up --build
+```
+
+The API is available at `http://localhost:8000`. Check it with `GET /health`.
+The first transcription downloads the Whisper model into the named Docker
+cache volume. Set `TRANSLATION_API_URL` to a reachable translation provider
+before calling the translation endpoint.
+
+Run backend tests from the repository root with:
+
+```bash
+backend/.venv/bin/python -m pytest backend/tests -q
+```

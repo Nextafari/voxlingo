@@ -1,0 +1,1 @@
+"""VoxLingo backend application."""

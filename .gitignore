@@ -49,3 +49,9 @@ android/*.iml
 
 # TypeScript
 *.tsbuildinfo
+
+# Python backend
+__pycache__/
+.pytest_cache/
+.venv/
+*.py[cod]

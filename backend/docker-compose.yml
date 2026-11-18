@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    environment:
+      WHISPER_MODEL: ${WHISPER_MODEL:-tiny}
+      WHISPER_DEVICE: ${WHISPER_DEVICE:-cpu}
+      WHISPER_COMPUTE_TYPE: ${WHISPER_COMPUTE_TYPE:-int8}
+      TRANSLATION_PROVIDER: ${TRANSLATION_PROVIDER:-libretranslate}
+      TRANSLATION_API_URL: ${TRANSLATION_API_URL:-http://host.docker.internal:5000/translate}
+      TRANSLATION_API_KEY: ${TRANSLATION_API_KEY:-}
+    volumes:
+      - whisper-cache:/root/.cache
+
+volumes:
+  whisper-cache:
